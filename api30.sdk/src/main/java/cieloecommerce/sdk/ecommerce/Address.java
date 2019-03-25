@@ -49,6 +49,13 @@ public class Address {
 	private String country;
 
 	/**
+	 * {@link Address#getCountry()}
+	 */
+	@SerializedName("District")
+	private String district;
+
+	
+	/**
 	 * @return the city of customer's address
 	 */
 	public String getCity() {
@@ -152,4 +159,16 @@ public class Address {
 		this.zipCode = zipCode;
 		return this;
 	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public Address setDistrict(String district) {
+		this.district = district;
+		return this;
+	}
+	
+	
+	
 }

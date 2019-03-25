@@ -1,14 +1,15 @@
 package cieloecommerce.sdk.ecommerce.request;
 
-import cieloecommerce.sdk.Environment;
-import cieloecommerce.sdk.Merchant;
-import cieloecommerce.sdk.ecommerce.SaleResponse;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
+import cieloecommerce.sdk.Environment;
+import cieloecommerce.sdk.Merchant;
+import cieloecommerce.sdk.ecommerce.SaleResponse;
 
 /**
  * Capture or cancel a Sale

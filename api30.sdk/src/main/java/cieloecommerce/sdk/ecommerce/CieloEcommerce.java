@@ -137,6 +137,27 @@ public class CieloEcommerce {
 	}
 
 	
+	/**
+	 * Query a BINResponse on Cielo by bin
+	 *
+	 * @param paymentId
+	 *            The paymentId to be queried
+	 * @return The Sale with authorization, tid, etc. returned by Cielo.
+	 * @throws IOException
+	 * @throws CieloRequestException
+	 *             if anything gets wrong.
+	 * @see <a href=
+	 *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
+	 *      Codes</a>
+	 */
+	public BINResponse queryBIN(String bin) throws IOException, CieloRequestException {
+		QueryBINRequest querySaleRequest = new QueryBINRequest(merchant, environment);
+		querySaleRequest.setHttpClient(httpClient);
+		BINResponse binRespose = querySaleRequest.execute(bin);
+		return binRespose;
+	}
+
+	
 
 	/**
 	 * Query a RecurrentSale on Cielo by recurrentPaymentId
@@ -292,4 +313,23 @@ public class CieloEcommerce {
 	public SaleResponse captureSale(String paymentId) throws IOException, CieloRequestException {
 		return captureSale(paymentId, null, null);
 	}
+	
+	
+	public ZeroAuth zeroAuth(ZeroAuth zeroAuth)  throws IOException, CieloRequestException {
+		ZeroAuthRequest zeroAuthRequest = new ZeroAuthRequest(merchant, environment);
+		zeroAuthRequest.setHttpClient(httpClient);
+		ZeroAuth resp  = zeroAuthRequest.execute(zeroAuth);
+
+		return resp;
+	}
+	
+
+	public CardBin checkBIN(String BIN)  throws IOException, CieloRequestException {
+		CardBinRequest cardBinRequest = new CardBinRequest(merchant, environment);
+		cardBinRequest.setHttpClient(httpClient);
+		CardBin resp  = cardBinRequest.execute(BIN);
+
+		return resp;
+	}
+	
 }

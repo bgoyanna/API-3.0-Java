@@ -83,6 +83,8 @@ public class Payment {
 	private String instructions;
 	@SerializedName("AuthenticationUrl")
 	private String authenticationUrl;
+	@SerializedName("Wallet")
+	private Object wallet;
 	
 
 	public Payment(Integer amount, Integer installments) {
@@ -97,7 +99,7 @@ public class Payment {
 	public CreditCard creditCard(String securityCode, String brand) {
 		setType(Type.CreditCard);
 		setCreditCard(new CreditCard(securityCode, brand));
-
+ 
 		return getCreditCard();
 	}
 	
@@ -429,8 +431,17 @@ public class Payment {
 		return url;
 	}
 
+	public Object getWallet() {
+		return wallet;
+	}
+
+	public Payment setWallet(Object wallet) {
+		this.wallet = wallet;
+		return this;
+	}
+
 	public enum Provider {
-		Bradesco, BancoDoBrasil, Simulado
+		Bradesco, BancoDoBrasil, Simulado, Bradesco2, BancodoBrasil2, Cielo, Cielo30
 	}
 
 	public enum Type {

@@ -15,6 +15,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 import com.google.gson.Gson;
+
 import cieloecommerce.sdk.Environment;
 import cieloecommerce.sdk.Merchant;
 
@@ -60,7 +61,6 @@ public abstract class AbstractSaleRequest<Request, Response> {
 		request.addHeader("MerchantId", merchant.getId());
 		request.addHeader("MerchantKey", merchant.getKey());
 		request.addHeader("RequestId", UUID.randomUUID().toString());
-
 		return httpClient.execute(request);
 	}
 
